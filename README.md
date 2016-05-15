@@ -11,14 +11,22 @@ Clone the repository on your machine and build *foo*:
 
 ``docker build -t foo .``
 
+If you already have the git repository on your machine but it needs to be updated:
+
+``cd foo && git pull``
+
+``docker build --no-cache -t foo .``
+
 ### Usage
 
 Self made:
 
-``docker run -it --name foo foo``
+``docker run -it --rm --name foo foo``
 
 Pulled:
 
-``docker run -it --name foo pocketplaylab/foo``
+``docker run -it --rm --name foo pocketplaylab/foo``
 
-Foo is based on [pocket-playlab/amumu](https://github.com/pocket-playlab/amumu) but uses [Alpine Linux docker image](https://hub.docker.com/_/alpine/)
+Foo is based on [pocket-playlab/amumu](https://github.com/pocket-playlab/amumu) but uses [Alpine Linux docker image](https://hub.docker.com/_/alpine/). It has the same utilities and a few more: [wrk](https://github.com/wg/wrk) and [wrk2](https://github.com/giltene/wrk2)
+
+Since this image is built using Alpine Linux, its size is considerably smaller than a build made with Ubuntu. Currently the uncompressed size of the image is 591.4 MB and 172 MB compressed (dockerhub)
