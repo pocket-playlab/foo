@@ -20,6 +20,7 @@ RUN apk add curl \
     go \
     drill \
     htop \
+    wrk \
     && rm -rf /var/cache/apk/*
 
 RUN go get github.com/rakyll/boom
