@@ -22,6 +22,7 @@ RUN apk add curl \
     htop \
     wrk \
     openssl-dev \
+    pssh \
     && rm -rf /var/cache/apk/*
 
 RUN git clone https://github.com/giltene/wrk2.git && cd wrk2 && make && cp wrk /usr/bin/wrk2 && cd / && rm -rf wrk2/
