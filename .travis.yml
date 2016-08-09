@@ -13,8 +13,8 @@ before_install:
   - sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-engine=${DOCKER_VERSION}
   - docker version
   - docker info
-  - docker build -t quay.io/playlab/foo .
-
+  - docker build -t pocketplaylab/foo .
+script: docker run -it -d pocketplaylab/foo
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
