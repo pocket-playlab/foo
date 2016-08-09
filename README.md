@@ -1,5 +1,7 @@
 # foo
 
+[![Build Status](https://travis-ci.org/pocket-playlab/foo.svg?branch=master)](https://travis-ci.org/pocket-playlab/foo)
+
 ### Utility container reloaded
 
 
