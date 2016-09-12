@@ -24,9 +24,10 @@ RUN apk add curl \
     openssl-dev \
     pssh \
     py-pip \
+    bash \
     && rm -rf /var/cache/apk/*
 
-RUN pip install awscli cqlsh
+RUN pip install awscli cqlsh s3cmd
 
 RUN git clone https://github.com/giltene/wrk2.git && cd wrk2 && make && cp wrk /usr/bin/wrk2 && cd / && rm -rf wrk2/
 COPY wrk-test.lua .
