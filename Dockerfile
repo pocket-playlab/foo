@@ -23,7 +23,7 @@ RUN apk add curl \
     wrk \
     openssl-dev \
     pssh \
-    py-pip \
+    py2-pip \
     bash \
     && rm -rf /var/cache/apk/*
 
