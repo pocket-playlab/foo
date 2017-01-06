@@ -25,6 +25,7 @@ RUN apk add curl \
     pssh \
     py2-pip \
     bash \
+    nodejs \
     && rm -rf /var/cache/apk/*
 
 RUN pip install awscli cqlsh s3cmd
