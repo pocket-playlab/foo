@@ -32,6 +32,6 @@ RUN pip install awscli cqlsh s3cmd
 
 RUN git clone https://github.com/giltene/wrk2.git && cd wrk2 && make && cp wrk /usr/bin/wrk2 && cd / && rm -rf wrk2/
 COPY wrk-test.lua .
-RUN go get github.com/rakyll/boom
+RUN go get github.com/rakyll/hey
 
 CMD ["sh"]
