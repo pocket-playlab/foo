@@ -31,4 +31,4 @@ Pulled:
 
 Foo is based on [pocket-playlab/amumu](https://github.com/pocket-playlab/amumu) but uses [Alpine Linux docker image](https://hub.docker.com/_/alpine/). It has the same utilities and a few more: [wrk](https://github.com/wg/wrk) and [wrk2](https://github.com/giltene/wrk2)
 
-Since this image is built using Alpine Linux, its size is considerably smaller than a build made with Ubuntu. Currently the uncompressed size of the image is 591.4 MB and 172 MB compressed (dockerhub)
+Since this image is built using Alpine Linux, its size is considerably smaller than a build made with Ubuntu. Currently the uncompressed size of the image is ~700 MB and ~230 MB compressed (dockerhub)
