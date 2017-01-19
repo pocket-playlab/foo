@@ -9,7 +9,7 @@
 
 Clone the repository on your machine and build *foo*:
 
-``git clone git@github.com:pocket-playlab/foo.git && cd foo``
+``git clone https://github.com/pocket-playlab/foo.git && cd foo``
 
 ``docker build -t foo .``
 
