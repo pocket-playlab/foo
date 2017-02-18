@@ -6,8 +6,8 @@ RUN echo "http://dl-3.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
 
 ENV GOPATH /
 
-RUN apk update
-RUN apk add curl \
+RUN apk update \
+    && apk add curl \
     build-base \
     bzr \
     git \
@@ -26,12 +26,18 @@ RUN apk add curl \
     py2-pip \
     bash \
     nodejs \
-    && rm -rf /var/cache/apk/*
+    awscli \
+    awscli-bash-completion \
+    awscli-completer \
+    && rm -rf /var/cache/apk/* \
+    && rm -f /var/tmp/*
 
-RUN pip install awscli cqlsh s3cmd
-
-RUN git clone https://github.com/giltene/wrk2.git && cd wrk2 && make && cp wrk /usr/bin/wrk2 && cd / && rm -rf wrk2/
-COPY wrk-test.lua .
+RUN pip install cqlsh s3cmd
 RUN go get github.com/rakyll/hey
+RUN git clone https://github.com/giltene/wrk2.git && cd wrk2 && make && cp wrk /usr/bin/wrk2 && cd / && rm -rf wrk2/
+
+COPY wrk-test.lua .
+
 
 CMD ["sh"]
+
