@@ -27,9 +27,9 @@ RUN apk update \
     py2-pip \
     bash \
     nodejs \
-    awscli \
-    awscli-bash-completion \
-    awscli-completer \
+    aws-cli \
+    aws-cli-bash-completion \
+    aws-cli-completer \
     && rm -rf /var/cache/apk/* \
     && rm -f /var/tmp/*
 
