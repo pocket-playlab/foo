@@ -12,8 +12,9 @@ RUN apk update \
     bzr \
     git \
     mercurial \
-    mysql-client \
+    mariadb-client \
     postgresql-client \
+    postgresql \
     vim \
     redis \
     mongodb-tools \
