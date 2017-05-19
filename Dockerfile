@@ -6,8 +6,7 @@ RUN echo "http://dl-3.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
 
 ENV GOPATH /
 
-RUN apk update \
-    && apk add curl \
+RUN apk add --update curl \
     build-base \
     bzr \
     git \
