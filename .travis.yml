@@ -1,13 +1,11 @@
 sudo: required
 services:
   - docker
-
 env:
     global:
         - COMMIT=${TRAVIS_COMMIT::8}
-
 before_install:
-  - docker build -t pocketplaylab/foo .
+  - docker build --rm --no-cache -t $REPO .
 
 script: docker run -it -d pocketplaylab/foo ping -c 3 google.com
 
