@@ -1,12 +1,11 @@
 FROM alpine:edge
 
-MAINTAINER Sebastian Sasu <sebastian.s@pocketplaylab.com>
+LABEL maintainer Sebastian Sasu <sebastian.s@pocketplaylab.com>
 
-RUN echo "http://dl-3.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories
+ENV GOPATH /opt/tools
 
-ENV GOPATH /
-
-RUN apk add --update curl \
+RUN echo "http://dl-3.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories \
+    && apk add --update --no-cache curl \
     build-base \
     bzr \
     git \
@@ -29,15 +28,17 @@ RUN apk add --update curl \
     aws-cli \
     aws-cli-bash-completion \
     aws-cli-completer \
-    && rm -rf /var/cache/apk/* \
-    && rm -f /var/tmp/*
+    && rm -rf /var/cache/apk/*
 
-RUN pip install cqlsh s3cmd
-RUN go get github.com/rakyll/hey
-RUN git clone https://github.com/giltene/wrk2.git && cd wrk2 && make && cp wrk /usr/bin/wrk2 && cd / && rm -rf wrk2/
 
-COPY wrk-test.lua .
+RUN pip install cqlsh s3cmd \
+    && go get github.com/rakyll/hey \
+    && git clone https://github.com/giltene/wrk2.git \
+    && cd wrk2 && make && cp wrk /usr/bin/wrk2 \
+    && rm -rf wrk2/
 
+WORKDIR /opt/tools
+
+COPY wrk-test.lua $WORKDIR
 
 CMD ["sh"]
-
