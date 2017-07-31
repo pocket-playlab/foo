@@ -12,8 +12,6 @@ RUN echo "http://dl-3.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
     mercurial \
     mariadb-client \
     postgresql-client \
-    postgresql \
-    vim \
     redis \
     mongodb-tools \
     go \
@@ -28,6 +26,7 @@ RUN echo "http://dl-3.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
     aws-cli \
     aws-cli-bash-completion \
     aws-cli-completer \
+    && apk upgrade \
     && rm -rf /var/cache/apk/*
 
 
@@ -36,6 +35,7 @@ RUN pip install cqlsh s3cmd \
     && git clone https://github.com/giltene/wrk2.git \
     && cd wrk2 && make && cp wrk /usr/bin/wrk2 \
     && rm -rf wrk2/
+RUN apk del build-base openssl-dev py2-pip && rm -rf /var/cache/apk/*
 
 WORKDIR /opt/tools
 
